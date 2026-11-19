@@ -9,7 +9,7 @@ An anime-styled weather app built with **React, Vite, Tailwind CSS and Framer Mo
 - Region selection: 10 presets, search for any city worldwide, or use your location
 - Weather-aware animated backgrounds (sakura petals, stars, rain, snow, clouds, lightning)
 - 6-day forecast with a °C / °F toggle
-- **Unique feature: Today's Episode.** The weather becomes an anime episode with a genre, a title, spirit meters and a tip from Miko. Copy it to share.
+- **Unique feature: Cyber Weather Scan.** A neon cyberpunk diagnostic panel turns the weather into a threat level, system meters (fog, wind shear, thermal stress, precipitation), a recommended loadout and a note from Miko.EXE. Copy it as a transmission to share.
 
 ## Run locally
 

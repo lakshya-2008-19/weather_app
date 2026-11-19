@@ -4,8 +4,9 @@ import Background from './components/Background.jsx'
 import Miko from './components/Miko.jsx'
 import Clock from './components/Clock.jsx'
 import RegionPicker from './components/RegionPicker.jsx'
-import EpisodeCard from './components/EpisodeCard.jsx'
-import { REGIONS, buildEpisode, describeCode, fetchWeather } from './lib/weather.js'
+import CyberCard from './components/CyberCard.jsx'
+import { REGIONS, describeCode, fetchWeather } from './lib/weather.js'
+import { buildScan } from './lib/cyber.js'
 
 const GREETINGS = ['Hi!', 'こんにちは!', 'Namaste!', 'Hola!', 'Bonjour!', '안녕!', 'Hello~']
 
@@ -102,18 +103,20 @@ export default function App() {
 
   const temp = (c) => (unit === 'C' ? Math.round(c) : Math.round((c * 9) / 5 + 32))
 
-  const episode = useMemo(() => {
+  const scan = useMemo(() => {
     if (!cur) return null
-    return buildEpisode({
+    return buildScan({
       city: region.name,
       dateStr: cur.time.slice(0, 10),
+      timeStr: cur.time.slice(11, 16),
+      isDay,
       theme,
       tempC: cur.temperature_2m,
       feelsC: cur.apparent_temperature,
       windKmh: cur.wind_speed_10m,
       rainChance: data.daily.precipitation_probability_max?.[0],
     })
-  }, [cur, data, region.name, theme])
+  }, [cur, data, region.name, theme, isDay])
 
   const pokeMiko = () => {
     const list = QUIPS[theme] || QUIPS.clear
@@ -252,11 +255,7 @@ export default function App() {
               </Card>
             )}
 
-            {episode && (
-              <Card dark={dark} delay={0.2}>
-                <EpisodeCard episode={episode} city={region.name} weatherLabel={info.label} />
-              </Card>
-            )}
+            {scan && <CyberCard scan={scan} city={region.name} weatherLabel={info.label} />}
           </div>
 
           <div className="space-y-5">

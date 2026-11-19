@@ -42,21 +42,18 @@ export default function CyberCard({ scan, city, weatherLabel }) {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
-      className="relative overflow-hidden rounded-3xl border border-cyan-400/60 bg-[#070714]/90 p-5 font-mono text-cyan-100 backdrop-blur-md"
-      style={{ boxShadow: '0 0 0 1px rgba(236,72,153,0.35), 0 0 32px rgba(34,211,238,0.28), 0 0 70px rgba(236,72,153,0.18)' }}
+      className="cyber-card p-5 text-cyan-100"
+      style={{ '--hot': '#ec4899' }}
     >
-      {/* scanlines */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-30"
-        style={{ backgroundImage: 'repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 3px)' }}
-      />
       {/* moving scan beam */}
-      <motion.div
-        className="pointer-events-none absolute left-0 right-0 h-16 bg-gradient-to-b from-transparent via-cyan-400/15 to-transparent"
-        initial={{ top: '-20%' }}
-        animate={{ top: '110%' }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: 'linear' }}
-      />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute left-0 right-0 h-16 bg-gradient-to-b from-transparent via-cyan-400/15 to-transparent"
+          initial={{ top: '-20%' }}
+          animate={{ top: '110%' }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: 'linear' }}
+        />
+      </div>
 
       <div className="relative">
         <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] uppercase tracking-[0.25em] text-cyan-300/80">

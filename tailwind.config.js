@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        anime: ['"Zen Maru Gothic"', '"Nunito"', 'system-ui', 'sans-serif'],
-        title: ['"Dela Gothic One"', '"Zen Maru Gothic"', 'sans-serif'],
+        cyber: ['Orbitron', '"Share Tech Mono"', 'system-ui', 'sans-serif'],
+        tech: ['"Share Tech Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
     },
   },
